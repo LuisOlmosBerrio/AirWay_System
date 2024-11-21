@@ -1,0 +1,7 @@
+{
+  "name": "AirWay_System",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
