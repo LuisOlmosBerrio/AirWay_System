@@ -8,10 +8,23 @@ const routes: Routes = [
       import('./pages/home/home.module').then((m) => m.HomePageModule),
   },
   {
+    path: 'admin-panel',
+    loadChildren: () => import('./pages/admin-panel/admin-panel.module').then( m => m.AdminPanelPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
+  },  {
+    path: 'login-admin',
+    loadChildren: () => import('./pages/login-admin/login-admin.module').then( m => m.LoginAdminPageModule)
   },
+  {
+    path: 'auth-compani',
+    loadChildren: () => import('./pages/auth-compani/auth-compani.module').then( m => m.AuthCompaniPageModule)
+  },
+
+
 ];
 
 @NgModule({

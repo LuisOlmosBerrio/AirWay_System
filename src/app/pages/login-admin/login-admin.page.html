@@ -1,0 +1,40 @@
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <div class="login-left">
+      <img src="https://vuulrdxwexlikrkgofvd.supabase.co/storage/v1/object/public/profile-images/Imagen%20de%20WhatsApp%202024-11-23%20a%20las%2020.37.35_72ab8800.png?t=2024-11-24T01%3A57%3A07.103Z" class="login-image">
+    </div>
+    <div class="login-right">
+      <h2>Login as an Admin User</h2>
+      <form class="login-form" (ngSubmit)="login()" #loginForm="ngForm">
+        <div class="form-group">
+          <ion-icon name="person-outline"></ion-icon>
+          <input 
+            type="text" 
+            placeholder="Username" 
+            name="user_name" 
+            [(ngModel)]="loginData.user_name" 
+            required>
+        </div>
+        <div class="form-group password-group">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input 
+            [type]="showPassword ? 'text' : 'password'" 
+            placeholder="Password" 
+            name="password" 
+            [(ngModel)]="loginData.password" 
+            required>
+          <ion-icon 
+            [name]="showPassword ? 'eye-outline' : 'eye-off-outline'" 
+            class="toggle-password"
+            (click)="togglePasswordVisibility()">
+          </ion-icon>
+        </div>
+        <button type="submit" class="btn-login" [disabled]="!loginForm.valid">LOGIN</button>
+        <div class="help-links">
+          <a href="#">Forgot your password?</a>
+          <a routerLink="/auth-compani">Get help Signed in.</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
