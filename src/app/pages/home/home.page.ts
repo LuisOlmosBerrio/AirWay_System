@@ -7,8 +7,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  
+  selectedDate: string;
 
-  constructor() {}
+  constructor() {
+    this.selectedDate = '';
+  }
+
+  openDatePopover() {
   
+  }
 }
