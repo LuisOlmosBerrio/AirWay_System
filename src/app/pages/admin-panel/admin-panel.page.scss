@@ -1,74 +1,69 @@
 ion-header {
-    height: 25vh;
-    background-color: #F39A4C;
-}
-
-.header-title {
-    text-align: center; 
-    margin: 0; 
-    font-size: 1.5rem;
-}
+    background-color: #f9a825; /* Amarillo anaranjado */
+    color: #fff;
   
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
   
-.header-info {
-    display: flex;
-    justify-content: flex-end; 
-    align-items: center; 
-    padding-right: 16px; 
-    margin-top: -8px; 
-}
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
   
-.header-info img {
-    height: 41px;
-    width: 41px;
-    margin-right: 10px;
-}
+      .company-logo img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
   
-.company-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
+      .company-details {
+        text-align: right;
   
-.name-compani {
-    color: #FFFEFE;
-    font-size: 14px;
-    font-weight: 400;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px; 
-}
+        .name-company {
+          font-size: 1rem;
+          font-weight: bold;
+          margin: 0;
+        }
   
-.type-compani {
-    color: #FFFEFE;
-    font-size: 9px;
-    font-weight: 400;
-    margin: 5px 0 0; 
-}
-
-.custom-box {
-    width: 200px; /* Ancho de la tarjeta */
-    height: 200px; /* Alto de la tarjeta */
-    background-color: #ffffff; /* Fondo blanco */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    display: flex; /* Flexbox para alinear contenido */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    margin: 10px; /* Espaciado alrededor */
+        .type-company {
+          font-size: 0.85rem;
+          margin: 0;
+        }
+      }
+    }
   }
   
-  .box-text {
-    font-size: 16px; /* Tamaño de texto */
-    color: #333333; /* Color de texto */
-    text-align: center; /* Alinear texto al centro */
+  .statistics-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    background-color: #ffcc80; /* Naranja rojizo */
   }
-
-.stadistic-contener {
-    border: 1px solid;
-    margin-left: 335px;
-}
+  
+  .admin-section {
+    padding: 1rem;
+  
+    .admin-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+  
+    .admin-cards {
+      display: flex;
+      justify-content: space-around;
+  
+      ion-card {
+        width: 30%;
+        height: 100px;
+        background: #e0f7fa; /* Azul claro */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
   

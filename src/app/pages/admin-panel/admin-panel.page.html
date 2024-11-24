@@ -1,27 +1,67 @@
 <ion-header [translucent]="true">
-  <h3 class="header-title">AirWaySystem</h3>
-  
-  <div class="header-info">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFfqG4FopI1Jr5HkTQdzwDnxapcGW0RtWuGQ&s" alt="Company logo">
+  <ion-toolbar color="light">
+    <ion-title class="header-title">AirWaySystem</ion-title>
+  </ion-toolbar>
+
+  <div class="header-container">
+    <div class="company-logo">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFfqG4FopI1Jr5HkTQdzwDnxapcGW0RtWuGQ&s"
+        alt="Company Logo"
+      />
+    </div>
     <div class="company-details">
-      <p class="name-compani">Caracoles de india</p>
-      <p class="type-compani">Hotel</p>
+      <p class="name-company">Corales de india</p>
+      <p class="type-company">Hotel</p>
     </div>
   </div>
-  
-  <div class="stadistic-contener">
-    <app-estadistic-card></app-estadistic-card>
-  </div>
-
 </ion-header>
 
-
 <ion-content [fullscreen]="true">
-
-  <div class="custom-box">
-    <!-- Contenido personalizado -->
-    <p class="box-text">Contenido aquí</p>
+  <div class="statistics-section">
+    <app-estadistic-card type="number" conte="123" title="Ventas"></app-estadistic-card>
+    <app-estadistic-card type="money" conte="123" title="Dinero"></app-estadistic-card>
+    <app-estadistic-card type="number" conte="123" title="Ofertas"></app-estadistic-card>
+    
   </div>
-  
 
+  <div class="admin-section">
+    <p class="admin-title">Administrar</p>
+    <div class="admin-cards">
+      
+      <ion-card (click)="newOfer()" [style.cursor]="'pointer'">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-icon name="pricetag-outline"></ion-icon> Crear Oferta
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          ¡Haz clic para crear una nueva oferta de manera rápida y sencilla!
+        </ion-card-content>
+      </ion-card>
+      
+      <ion-card [style.cursor]="'pointer'">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-icon name="document-text-outline"></ion-icon> Mis Ofertas Creadas
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Haz clic aquí para ver y administrar las ofertas que has creado.
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card [style.cursor]="'pointer'">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-icon name="bed-outline"></ion-icon> Crear Habitación
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Haz clic aquí para agregar una nueva habitación a tu listado.
+        </ion-card-content>
+      </ion-card>
+      
+    </div>
+  </div>
 </ion-content>
