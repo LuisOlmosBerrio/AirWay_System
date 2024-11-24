@@ -1,13 +1,93 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>authCompani</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">authCompani</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="form-container">
+    <!-- Paso 1: Selección del plan -->
+    <div *ngIf="currentStep === 1" class="step-container">
+      <h2 class="step-title">Select a Plan</h2>
+      <ion-radio-group [(ngModel)]="formData.plan">
+        <ion-item>
+          <ion-label>Annual</ion-label>
+          <ion-radio value="annual"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Monthly</ion-label>
+          <ion-radio value="monthly"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Daily Discount</ion-label>
+          <ion-radio value="daily"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <div class="actions">
+        <button class="btn-next" (click)="nextStep()">Next</button>
+      </div>
+    </div>
+
+    <!-- Paso 2: Información de la compañía -->
+    <div *ngIf="currentStep === 2" class="step-container">
+      <h2 class="step-title">Company Information</h2>
+      <ion-item>
+        <ion-label position="floating">Company Name</ion-label>
+        <ion-input [(ngModel)]="formData.companyName" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Logo URL</ion-label>
+        <ion-input [(ngModel)]="formData.logoUrl"></ion-input>
+      </ion-item>
+      <div class="actions">
+        <button class="btn-prev" (click)="previousStep()">Previous</button>
+        <button class="btn-next" (click)="nextStep()">Next</button>
+      </div>
+    </div>
+
+    <!-- Paso 3: Información de contacto -->
+    <div *ngIf="currentStep === 3" class="step-container">
+      <h2 class="step-title">Contact Information</h2>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="formData.email" type="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input [(ngModel)]="formData.phoneNumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Address</ion-label>
+        <ion-input [(ngModel)]="formData.address"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contact Person</ion-label>
+        <ion-input [(ngModel)]="formData.contactPerson"></ion-input>
+      </ion-item>
+      <div class="actions">
+        <button class="btn-prev" (click)="previousStep()">Previous</button>
+        <button class="btn-next" (click)="nextStep()">Next</button>
+      </div>
+    </div>
+
+    <!-- Paso 4: Datos de usuario -->
+    <div *ngIf="currentStep === 4" class="step-container">
+      <h2 class="step-title">Account Details</h2>
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input [(ngModel)]="formData.username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input [(ngModel)]="formData.password" [type]="showPassword ? 'text' : 'password'"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input [(ngModel)]="formData.confirmPassword" [type]="showPassword ? 'text' : 'password'"></ion-input>
+      </ion-item>
+      <ion-icon 
+        [name]="showPassword ? 'eye-outline' : 'eye-off-outline'" 
+        class="toggle-password"
+        (click)="togglePasswordVisibility()">
+      </ion-icon>
+      <div class="actions">
+        <button class="btn-prev" (click)="previousStep()">Previous</button>
+        <button class="btn-register" (click)="register()">Register</button>
+      </div>
+    </div>
+  </div>
 </ion-content>
