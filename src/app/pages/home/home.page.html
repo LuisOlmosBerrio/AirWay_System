@@ -7,9 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Sección de búsqueda de vuelos -->
   <section class="search-section">
-    <!-- Radio Buttons de Tipo de vuelo (Ida o Ida y vuelta) -->
     <ion-item class="radio-buttons-container">
       <ion-radio-group value="ida" class="radio-group-inline">
         <ion-item lines="none">
@@ -23,7 +21,6 @@
       </ion-radio-group>
     </ion-item>
 
-    <!-- Formulario con Origen, Destino y Fecha en una sola línea -->
     <div class="form-inline">
       <div class="input-container">
         <ion-label position="floating">Origen</ion-label>
@@ -46,15 +43,12 @@
       </div>
     </div>
 
-    <!-- Botón de búsqueda -->
     <ion-button expand="full" color="secondary">Buscar vuelos</ion-button>
   </section>
 
-  <!-- Sección de resultados de vuelos -->
   <section class="results-section">
     <h2>Vuelos disponibles</h2>
 
-    <!-- Vuelo 1 -->
     <ion-card>
       <ion-card-header>
         <ion-card-title>Vuelo 1</ion-card-title>
@@ -67,7 +61,6 @@
       </ion-card-content>
     </ion-card>
 
-    <!-- Vuelo 2 -->
     <ion-card>
       <ion-card-header>
         <ion-card-title>Vuelo 2</ion-card-title>

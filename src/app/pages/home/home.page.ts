@@ -10,10 +10,10 @@ export class HomePage {
   selectedDate: string;
 
   constructor() {
-    this.selectedDate = ''; // Inicializa la fecha seleccionada
+    this.selectedDate = '';
   }
 
   openDatePopover() {
-    // Aquí puedes manejar cualquier lógica adicional si es necesario
+  
   }
 }
