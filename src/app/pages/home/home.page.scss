@@ -15,7 +15,7 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-  color: #8c8c8c;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -24,11 +24,11 @@
 }
 
 .custom-header {
-  --background: #ff8c00;
+  --background: #ec5915;
 }
 
 ion-toolbar {
-  --background: #ff8c00; 
+  --background: #ec5915; 
 }
 
 /* Estilo general */
@@ -38,7 +38,7 @@ ion-content {
 
 .search-section {
   position: relative; 
-  background-image: url('/src/assets/your-background-image.jpg'); 
+  background-image: url('https://vuulrdxwexlikrkgofvd.supabase.co/storage/v1/object/public/profile-images/Imagen%20de%20WhatsApp%202024-11-24%20a%20las%2001.34.38_c59e4ead.jpg'); 
   background-size: cover; 
   background-position: center; 
   padding: 40px; 
@@ -140,4 +140,106 @@ ion-content {
 
  .date-popover {
   width: 80%;
+}
+.results-section {
+  padding: 20px; /* Espaciado alrededor de la sección */
+}
+
+.cards-container {
+  display: flex; /* Utiliza flexbox para alinear las cartas */
+  justify-content: space-between; /* Espacio entre las cartas */
+  flex-wrap: wrap; /* Permite que las cartas se envuelvan en pantallas más pequeñas */
+}
+
+.flight-card {
+  flex: 0 1 calc(45% - 10px); /* Cada carta ocupa el 45% del ancho menos un margen */
+  margin-bottom: 20px; /* Espacio entre filas de cartas */
+}
+.search-section {
+  position: relative; 
+  background-size: cover; 
+  background-position: center; 
+  padding: 40px; 
+  border-radius: 8px;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 20px; 
+  border-radius: 8px; 
+}
+
+.overlay h2 {
+  color: white; 
+  text-align: center; 
+}
+
+.form-inline {
+   display: flex; 
+   justify-content: space-between; 
+   margin-bottom:15px; 
+}
+
+.input-container {
+   flex:1; 
+   margin-right:10px;
+}
+
+.input-container:last-child {
+   margin-right:0;
+}
+
+.button-container {
+   display: flex;
+   justify-content: center; /* Centra el botón horizontalmente */
+   margin-top: 10px; /* Espacio superior entre el contenido y el botón */
+}
+ion-radio-group {
+  display: flex;
+  justify-content: center; /* Centra los radio buttons horizontalmente */
+  gap: 20px; /* Espacio entre los botones, ajusta según sea necesario */
+}
+
+ion-radio::part(container) {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+
+ion-radio::part(mark) {
+  background: none;
+  transition: none;
+  transform: none;
+  border-radius: 0;
+}
+
+ion-radio.radio-checked::part(container) {
+  background: #ec5915;
+  border-color: transparent;
+}
+
+ion-radio.radio-checked::part(mark) {
+  width: 6px;
+  height: 10px;
+  border-width: 0px 2px 2px 0px;
+  border-style: solid;
+  border-color: #fff;
+  transform: rotate(45deg);
+}
+
+/* Cambiar el color de los botones de ion-button */
+ion-button {
+  --background: #ec5915; /* Fondo de los botones */
+  --border-radius: 18px; /* Bordes redondeados */
+  --color: #fff; /* Color del texto en los botones */
+}
+
+/* Si quieres un botón con color específico, puedes usar un color diferente para hover o focus */
+ion-button:hover {
+  --background: #d74f14; /* Un color ligeramente más oscuro al pasar el ratón */
+}
+
+ion-button:active {
+  --background: #bf4a12; /* Un color aún más oscuro cuando el botón está presionado */
 }

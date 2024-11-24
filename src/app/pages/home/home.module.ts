@@ -9,6 +9,6 @@ import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [SharedModule, HomePageRoutingModule, ],
-  declarations: [HomePage],
+  declarations: [HomePage, ],
 })
 export class HomePageModule {}

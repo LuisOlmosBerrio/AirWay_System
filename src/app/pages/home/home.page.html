@@ -8,74 +8,80 @@
 
 <ion-content [fullscreen]="true">
   <section class="search-section">
-    <ion-item class="radio-buttons-container">
-      <ion-radio-group value="ida" class="radio-group-inline">
-        <ion-item lines="none">
-          <ion-label>Ida</ion-label>
-          <ion-radio slot="start" value="ida"></ion-radio>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label>Ida y vuelta</ion-label>
-          <ion-radio slot="start" value="ida-y-vuelta"></ion-radio>
-        </ion-item>
+    <div class="overlay">
+      <h2>Buscar Vuelos</h2>
+      
+      <ion-radio-group value="custom-checked">
+        <ion-radio value="custom" aria-label="Custom checkbox">Solo ida</ion-radio>
+        <ion-radio value="custom-checked" aria-label="Custom checkbox that is checked">Ida y vuelta</ion-radio>
       </ion-radio-group>
-    </ion-item>
+      <br>
+      <div class="form-inline">
+        <div class="input-container">
+          <ion-label position="floating">Origen</ion-label>
+          <ion-input type="text" placeholder="Ciudad de origen"></ion-input>
+        </div>
 
-    <div class="form-inline">
-      <div class="input-container">
-        <ion-label position="floating">Origen</ion-label>
-        <ion-input type="text" placeholder="Ciudad de origen"></ion-input>
-      </div>
+        <div class="input-container">
+          <ion-label position="floating">Destino</ion-label>
+          <ion-input type="text" placeholder="Ciudad de destino"></ion-input>
+        </div>
 
-      <div class="input-container">
-        <ion-label position="floating">Destino</ion-label>
-        <ion-input type="text" placeholder="Ciudad de destino"></ion-input>
-      </div>
-
-      <div class="input-container">
-        <ion-label>Fecha de salida</ion-label>
-        <ion-input id="date-input" readonly placeholder="Selecciona una fecha" (click)="openDatePopover()"></ion-input>
-        <ion-popover trigger="date-input" [cssClass]="'date-popover'">
-          <ng-template>
+        <div class="input-container">
+          <ion-label>Fecha de salida</ion-label>
+          <ion-input id="date-input" readonly placeholder="Selecciona una fecha" (click)="openDatePopover()"></ion-input>
+          <ng-template #datePopoverTemplate>
             <ion-datetime presentation="date" [(ngModel)]="selectedDate"></ion-datetime>
           </ng-template>
-        </ion-popover>
+        </div>
       </div>
+
+      <!-- Botón de búsqueda -->
+      <div class="button-container">
+        <ion-button  class="oval-button">Buscar vuelos</ion-button>
+      </div>
+    </div> <!-- Fin del overlay -->
+  </section>
+
+  <!-- Sección de resultados de vuelos -->
+  <section class="results-section">
+
+    <!-- Contenedor para las cartas -->
+    <div class="cards-container">
+      <!-- Vuelo 1 -->
+      <ion-card class="flight-card">
+        <ion-card-header>
+          <ion-card-title>Vuelo 1</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p><strong>Origen:</strong> Ciudad A</p>
+          <p><strong>Destino:</strong> Ciudad B</p>
+          <p><strong>Fecha:</strong> {{ selectedDate | date: 'yyyy-MM-dd' }}</p>
+          <div class="button-container">
+            <ion-button >Reservar</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Vuelo 2 -->
+      <ion-card class="flight-card">
+        <ion-card-header>
+          <ion-card-title>Vuelo 2</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p><strong>Origen:</strong> Ciudad C</p>
+          <p><strong>Destino:</strong> Ciudad D</p>
+          <p><strong>Fecha:</strong> {{ selectedDate | date: 'yyyy-MM-dd' }}</p>
+          <div class="button-container">
+            <ion-button  expand="block">Reservar</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
     </div>
 
-    <ion-button expand="full" color="secondary">Buscar vuelos</ion-button>
   </section>
 
-  <section class="results-section">
-    <ion-toolbar>
-      <ion-title>
-        <b>Vuelos disponibles</b>
-      </ion-title>
-    </ion-toolbar>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Vuelo 1</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p><strong>Origen:</strong> Ciudad A</p>
-        <p><strong>Destino:</strong> Ciudad B</p>
-        <p><strong>Fecha:</strong> {{ selectedDate | date: 'yyyy-MM-dd' }}</p>
-        <ion-button color="primary" expand="block">Reservar</ion-button>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Vuelo 2</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p><strong>Origen:</strong> Ciudad C</p>
-        <p><strong>Destino:</strong> Ciudad D</p>
-        <p><strong>Fecha:</strong> {{ selectedDate | date: 'yyyy-MM-dd' }}</p>
-        <ion-button color="primary" expand="block">Reservar</ion-button>
-      </ion-card-content>
-    </ion-card>
-  </section>
 
 </ion-content>
