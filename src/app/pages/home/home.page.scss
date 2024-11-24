@@ -1,6 +1,5 @@
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -16,12 +15,132 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+.custom-header {
+  --background: #ff8c00; /* Naranja personalizado */
+}
+
+ion-toolbar {
+  --background: #ff8c00; /* Naranja personalizado */
+}
+
+/* Estilo general */
+ion-content {
+  padding: 20px;
+}
+
+.search-section {
+  position: relative; /* Permite posicionar elementos dentro */
+  background-image: url('/src/assets/your-background-image.jpg'); /* Ruta a tu imagen */
+  background-size: cover; /* Cubre todo el área */
+  background-position: center; /* Centra la imagen */
+  padding: 40px; /* Espaciado alrededor del contenido */
+  border-radius: 8px;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para mejorar la legibilidad */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.overlay h2 {
+  color: white; /* Color del texto del encabezado */
+  text-align: center; /* Centra el texto */
+}
+
+.form-inline {
+   display: flex; /* Utiliza flexbox para alinear los elementos */
+   justify-content: space-between; /* Espacio entre los elementos */
+   margin-bottom:15px; /* Espacio entre la línea y el botón */
+}
+
+.input-container {
+   flex:1; /* Cada contenedor ocupará el mismo espacio */
+   margin-right:10px; /* Espacio entre los campos */
+}
+
+.input-container:last-child {
+   margin-right:0; /* Elimina el margen derecho del último campo */
+}
+.search-section h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-inline {
+   display: flex; /* Utiliza flexbox para alinear los elementos */
+   justify-content: space-between; /* Espacio entre los elementos */
+   margin-bottom:15px; /* Espacio entre la línea y el botón */
+}
+
+.input-container {
+   flex:1; /* Cada contenedor ocupará el mismo espacio */
+   margin-right:10px; /* Espacio entre los campos */
+}
+
+.input-container:last-child {
+   margin-right:0; /* Elimina el margen derecho del último campo */
+}
+
+ ion-item {
+   margin-bottom:15px;
+ }
+
+ ion-button {
+   margin-top:10px;
+ }
+
+/* Estilo para los radio buttons */
+/* Estilos para los radio buttons en línea */
+.radio-group-inline {
+   display:flex;
+   justify-content: space-between; /* Espacio entre los items */
+   width:100%; /* Asegura que ocupe el %100 del contenedor */
+ }
+
+.radio-group-inline ion-item {
+   width:48%; /* Asigna un %48 del ancho a cada item, puedes ajustar esto si lo necesitas */
+ }
+
+/* Sección de resultados */
+.results-section h2 {
+   font-size:1.5rem;
+   margin-bottom:20px;
+ }
+
+ ion-card {
+   margin-bottom:20px;
+ }
+
+ ion-card-header {
+   background-color:#f5f5f5;
+   border-radius:8px 8px00px0;
+ }
+
+ ion-card-content {
+   background-color:#ffffff;
+   border-radius:0px0px8px8px;
+   padding:15px;
+ }
+
+ ion-card-title {
+   font-weight:bold;
+ }
+
+ ion-card-content p {
+   font-size:1rem;
+   margin-bottom:10px;
+ }
+
+ .date-popover {
+  width: 80%; /* Ajusta el ancho del popover */
 }
