@@ -1,0 +1,23 @@
+<ion-card *ngIf="offer">
+  <div class="card-header">
+    <div class="flight-info">
+      <h3>{{ offer.origin | titlecase }} → {{ offer.destination | titlecase }}</h3>
+      <p>Salida: {{ offer.departure_date }} ({{ offer.departure_time }})</p>
+      <p>Llegada: {{ offer.arrival_date }} ({{ offer.arrival_time }})</p>
+    </div>
+    <div class="price-info">
+      <h2>${{ offer.price }}</h2>
+      <h4 *ngIf="offer.previous_price">
+        <del>${{ offer.previous_price }}</del>
+      </h4>
+    </div>
+  </div>
+  <div class="card-footer">
+    <ion-button expand="block" fill="outline" color="tertiary">Detalles</ion-button>
+    <ion-button expand="block" color="primary">Comprar</ion-button>
+  </div>
+</ion-card>
+
+<ng-template #noOffer>
+  <p>No se encontró la oferta.</p>
+</ng-template>
