@@ -1,59 +1,43 @@
-ion-content {
-    --background: #f9f9f9;
-  }
-  
-  .offer-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 16px;
+.offer-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 16px;
   }
   
-  .offer-header {
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .details-section h2 {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--ion-color-primary);
   }
   
-  .offer-header h2 {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #333333;
+  .details-section h2 ion-icon {
+    margin-right: 8px;
+    font-size: 20px;
   }
   
-  .offer-header p {
+  .details-section p {
     margin: 4px 0;
-    color: #666666;
+    font-size: 16px;
+    color: var(--ion-color-dark);
   }
   
-  .offer-price h3 {
-    font-size: 1.6rem;
-    color: #007bff;
-  }
-  
-  .previous-price {
-    font-size: 0.9rem;
-    color: #999999;
-    text-decoration: line-through;
-  }
-  
-  .offer-buttons {
+  .action-buttons {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
-    margin-top: 16px;
+    gap: 10px;
   }
   
-  .vehicle-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 16px;
-    padding: 16px;
-  }
-  
-  .vehicle-card ion-card-title {
-    font-size: 1.2rem;
-    color: #333333;
+  ion-button {
+    font-size: 18px;
+    padding: 12px;
   }
   

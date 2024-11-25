@@ -1,50 +1,94 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Ofertas de vuelos</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Detalles de la Oferta</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="offer; else noData">
-  <!-- Tarjeta de la oferta -->
-  <ion-card class="offer-card">
-    <ion-card-content>
-      <div class="offer-header">
-        <div>
-          <h2>{{ offer.origin }} → {{ offer.destination }}</h2>
-          <p>Salida: {{ offer.departure_date }} ({{ offer.departure_time }})</p>
-          <p>Llegada: {{ offer.arrival_date }} ({{ offer.arrival_time }})</p>
-        </div>
-        <div class="offer-price">
-          <h3>${{ offer.price }}</h3>
-          <p class="previous-price">${{ offer.previous_price }}</p>
-        </div>
+<ion-content>
+  <div class="offer-details-container">
+    <div class="details-grid">
+      <!-- Información principal de la oferta -->
+      <div class="offer-info">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="airplane" *ngIf="offerDetails?.vehicle?.vehicle_type === 'avion'"></ion-icon>
+              <ion-icon name="bus" *ngIf="offerDetails?.vehicle?.vehicle_type === 'bus'"></ion-icon>
+              Detalles de la Oferta
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div class="details-section">
+              <h2><ion-icon name="location"></ion-icon> Origen y Destino</h2>
+              <p><strong>Origen:</strong> {{ offerDetails?.origin }}</p>
+              <p><strong>Destino:</strong> {{ offerDetails?.destination }}</p>
+            </div>
+
+            <div class="details-section">
+              <h2><ion-icon name="calendar"></ion-icon> Fechas y Horarios</h2>
+              <p><strong>Fecha de salida:</strong> {{ offerDetails?.departure_date }}</p>
+              <p><strong>Hora de salida:</strong> {{ offerDetails?.departure_time }}</p>
+              <p><strong>Fecha de llegada:</strong> {{ offerDetails?.arrival_date }}</p>
+              <p><strong>Hora de llegada:</strong> {{ offerDetails?.arrival_time }}</p>
+            </div>
+          </ion-card-content>
+        </ion-card>
       </div>
 
-      <div class="offer-buttons">
-        <ion-button fill="outline" color="primary">Detalles</ion-button>
-        <ion-button color="primary" >Comprar</ion-button>
-      </div>
-    </ion-card-content>
-  </ion-card>
+      <!-- Información del vehículo -->
+      <div class="vehicle-info">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="car"></ion-icon> Vehículo Asociado
+            </ion-card-title>
+          </ion-card-header>
 
-  <!-- Información del vehículo -->
-  <ion-card class="vehicle-card" *ngIf="offer.id_vehicle">
-    <ion-card-header>
-      <ion-card-title>Detalles del vehículo</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p><strong>ID del vehículo:</strong> {{ offer.id_vehicle }}</p>
-      <p><strong>Tipo:</strong> Información adicional aquí</p>
-      <p><strong>Capacidad:</strong> Información adicional aquí</p>
-    </ion-card-content>
-  </ion-card>
+          <ion-card-content>
+            <div class="details-section">
+              <p><strong>Tipo:</strong> {{ offerDetails?.vehicle?.vehicle_type }}</p>
+              <p><strong>Modelo:</strong> {{ offerDetails?.vehicle?.vehicle_model }}</p>
+              <p><strong>Registro:</strong> {{ offerDetails?.vehicle?.vehicle_registration }}</p>
+              <p><strong>Estado:</strong> {{ offerDetails?.vehicle?.vehicle_status }}</p>
+              <p><strong>Amenidades:</strong> {{ offerDetails?.vehicle?.amenities || 'No disponible' }}</p>
+              <p><strong>Asientos ocupados:</strong> {{ offerDetails?.vehicle?.occupied_seats }}</p>
+              <p><strong>Asientos totales:</strong> {{ offerDetails?.vehicle?.total_seats }}</p>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <!-- Información de precios -->
+      <div class="price-info">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="pricetag"></ion-icon> Precios
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div class="details-section">
+              <p><strong>Precio actual:</strong> ${{ offerDetails?.price }}</p>
+              <p><strong>Precio anterior:</strong> ${{ offerDetails?.previous_price }}</p>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="action-buttons">
+      <ion-button expand="full" color="success" (click)="buyOffer()">
+        <ion-icon name="cart" slot="start"></ion-icon> Comprar
+      </ion-button>
+      <ion-button expand="full" color="medium" routerLink="/">
+        <ion-icon name="arrow-back" slot="start"></ion-icon> Regresar
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
-
-<!-- Mensaje si no hay datos -->
-<ng-template #noData>
-  <ion-content>
-    <ion-text color="danger" class="ion-text-center">
-      <h2>No se encontró información para la oferta seleccionada.</h2>
-    </ion-text>
-  </ion-content>
-</ng-template>
