@@ -1,9 +1,40 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>Crear Oferta</ion-title>
+  <ion-toolbar color="light">
+    <ion-title class="header-title">Crear Oferta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+  <div class="form-container">
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">Hotel</ion-label>
+        <ion-input formControlName="company_id" placeholder="Ejemplo: Hotel Sunrise Deluxe"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">ID de Habitación</ion-label>
+        <ion-input formControlName="room_id" type="number" placeholder="Ejemplo: 1"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Precio por Noche</ion-label>
+        <ion-input formControlName="price_per_night" type="number" placeholder="Ejemplo: 150"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Disponible Desde</ion-label>
+        <ion-datetime formControlName="available_from" displayFormat="YYYY-MM-DD" placeholder="Selecciona una fecha"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Disponible Hasta</ion-label>
+        <ion-datetime formControlName="available_until" displayFormat="YYYY-MM-DD" placeholder="Selecciona una fecha"></ion-datetime>
+      </ion-item>
+
+      <div class="form-buttons">
+        <ion-button expand="full" type="submit" [disabled]="!offerForm.valid" color="primary">Crear Oferta</ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>
