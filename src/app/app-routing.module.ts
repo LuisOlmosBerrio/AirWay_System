@@ -15,7 +15,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  },  {
+  },
+  {
     path: 'login-admin',
     loadChildren: () => import('./pages/login-admin/login-admin.module').then( m => m.LoginAdminPageModule)
   },
@@ -23,6 +24,12 @@ const routes: Routes = [
     path: 'ofertas',
     loadChildren: () => import('./pages/ofertas/ofertas.module').then( m => m.OfertasPageModule)
   },
+  {
+    path: 'detalle-oferts/:id',
+    loadChildren: () => import('./pages/detalle-oferts/detalle-oferts.module').then(m => m.DetalleOfertsPageModule)
+  },
+  
+
 
 
 ];

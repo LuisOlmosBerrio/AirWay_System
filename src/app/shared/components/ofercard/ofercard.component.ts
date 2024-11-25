@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { IFlightOffer } from 'src/app/interfaces/flight-offer';
 
 
@@ -7,12 +8,13 @@ import { IFlightOffer } from 'src/app/interfaces/flight-offer';
   templateUrl: './ofercard.component.html',
   styleUrls: ['./ofercard.component.scss'],
 })
-export class OfercardComponent implements OnInit {
+export class OfercardComponent  {
 
   @Input() offer: IFlightOffer | null = null;  // Recibimos una sola oferta
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit() {}
-
+  goToDetalle(id: number){
+    this.router.navigate([`detalle-oferts/${id}`]);
+  }
 }

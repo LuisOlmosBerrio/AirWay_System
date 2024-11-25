@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ofertas de vuelos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="offer; else noData">
+  <!-- Tarjeta de la oferta -->
+  <ion-card class="offer-card">
+    <ion-card-content>
+      <div class="offer-header">
+        <div>
+          <h2>{{ offer.origin }} → {{ offer.destination }}</h2>
+          <p>Salida: {{ offer.departure_date }} ({{ offer.departure_time }})</p>
+          <p>Llegada: {{ offer.arrival_date }} ({{ offer.arrival_time }})</p>
+        </div>
+        <div class="offer-price">
+          <h3>${{ offer.price }}</h3>
+          <p class="previous-price">${{ offer.previous_price }}</p>
+        </div>
+      </div>
+
+      <div class="offer-buttons">
+        <ion-button fill="outline" color="primary">Detalles</ion-button>
+        <ion-button color="primary" >Comprar</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Información del vehículo -->
+  <ion-card class="vehicle-card" *ngIf="offer.id_vehicle">
+    <ion-card-header>
+      <ion-card-title>Detalles del vehículo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>ID del vehículo:</strong> {{ offer.id_vehicle }}</p>
+      <p><strong>Tipo:</strong> Información adicional aquí</p>
+      <p><strong>Capacidad:</strong> Información adicional aquí</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<!-- Mensaje si no hay datos -->
+<ng-template #noData>
+  <ion-content>
+    <ion-text color="danger" class="ion-text-center">
+      <h2>No se encontró información para la oferta seleccionada.</h2>
+    </ion-text>
+  </ion-content>
+</ng-template>
