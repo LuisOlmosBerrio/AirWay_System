@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./login-admin.page.scss'],
 })
 export class LoginAdminPage {
-  // Datos del formulario
+  
   loginData = {
     user_name: '',
     password: ''

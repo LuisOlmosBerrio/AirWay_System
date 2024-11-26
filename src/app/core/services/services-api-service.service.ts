@@ -5,6 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ServicesApiServiceService {
+  register(value: any) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private readonly httpClient: HttpClient) {}
 
   // Método GET
@@ -33,4 +36,5 @@ export class ServicesApiServiceService {
       });
     });
   }
+
 }
