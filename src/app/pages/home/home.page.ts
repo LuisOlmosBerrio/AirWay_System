@@ -22,6 +22,12 @@ export class HomePage  {
     departure_date: '',
   };
 
+  onDateChange(event: any) {
+    const selectedDate = event.detail.value; // Captura el valor del ion-datetime
+    this.searchCriteria.departure_date = selectedDate.split('T')[0]; // Guarda solo la parte de la fecha
+  }
+  
+
   constructor(private readonly httpSrv: HttpService, private readonly router: Router) {
     this.selectedDate = '';
     const today = new Date();
@@ -32,16 +38,11 @@ export class HomePage  {
     this.maxDate = sixMonthsLater;
   }
 
-  openDatePopover() {
-  
-
-     
-  }
-
   isFormValid(): boolean {
     // Validar que todos los campos estén llenos
     return (
       !!this.vehicleType &&
+      !!this.searchCriteria.type &&
       !!this.searchCriteria.origin &&
       !!this.searchCriteria.destination &&
       !!this.searchCriteria.departure_date
@@ -53,11 +54,15 @@ export class HomePage  {
     // Validar que todos los campos requeridos estén llenos
     if (
       this.vehicleType &&
+      this.searchCriteria.type &&
       this.searchCriteria.origin &&
       this.searchCriteria.destination &&
       this.searchCriteria.departure_date
     ) {
       // Redirigir a la página de ofertas pasando los datos
+      if(this.vehicleType==='hotel'){
+        this.searchCriteria.type = 'hotel'
+      }
       this.router.navigate(['/ofertas'], {
         queryParams: {
           vehicleType: this.vehicleType,

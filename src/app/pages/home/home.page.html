@@ -16,7 +16,7 @@
         <ion-label>Tipo de vehículo</ion-label>
         <ion-select placeholder="Seleccione un tipo" [(ngModel)]="vehicleType">
           <ion-select-option value="avion">Avión</ion-select-option>
-          <ion-select-option value="transportation">Bus</ion-select-option>
+          <ion-select-option value="bus">Bus</ion-select-option>
           <ion-select-option value="hotel">Hotel</ion-select-option>
         </ion-select>
       </div>
@@ -50,7 +50,10 @@
           [min]="minDate"
           [max]="maxDate"
           presentation="date"
-        ></ion-datetime>
+          (ionChange)="onDateChange($event)"
+        >
+     </ion-datetime>
+
       </div>
 
       <!-- Botón de búsqueda -->

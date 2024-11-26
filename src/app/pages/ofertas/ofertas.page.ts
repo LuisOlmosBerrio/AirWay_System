@@ -13,9 +13,7 @@ export class OfertasPage implements OnInit {
 
   public offers: IFlightOffer[] = []; // Ofertas iniciales
   public vehicleType: string = ''; // Tipo de vehículo seleccionado
-  public searchCriteria = {
-    
-  };
+  public searchCriteria!: any;
 
   constructor(private apiService: ServicesApiServiceService, private readonly route: ActivatedRoute) {}
 
