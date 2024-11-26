@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ServicesApiServiceService } from 'src/app/core/services/services-api-service.service';
 import { IFlightOffer } from 'src/app/interfaces/flight-offer';
 import { environment } from 'src/environments/environment';
@@ -13,17 +14,22 @@ export class OfertasPage implements OnInit {
   public offers: IFlightOffer[] = []; // Ofertas iniciales
   public vehicleType: string = ''; // Tipo de vehículo seleccionado
   public searchCriteria = {
-    type: 'transportation',
-    origin: 'cartagena',
-    destination: 'bogota',
-    departure_date: '2024-11-25',
+    
   };
 
-  constructor(private apiService: ServicesApiServiceService) {}
+  constructor(private apiService: ServicesApiServiceService, private readonly route: ActivatedRoute) {}
 
   async ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      this.vehicleType = params['vehicleType'] || '';
+      this.searchCriteria = {
+        type: params['type'] || '',
+        origin: params['origin'] || '',
+        destination: params['destination'] || '',
+        departure_date: params['departure_date'] || '',
+      };
+    });
     await this.searchOffers();
-    this.vehicleType = 'avion'; // Tipo de vehículo predeterminado
     await this.filterOffersByVehicleType(); // Filtrar ofertas al iniciar
   }
 
