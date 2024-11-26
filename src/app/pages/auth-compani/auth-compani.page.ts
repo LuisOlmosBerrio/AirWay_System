@@ -23,30 +23,29 @@ export class AuthCompaniPage {
     contactPerson: '',
   };
 
-  constructor(private servicesApi: ServicesApiServiceService) {}
   showPassword = false;
+
+  constructor(private servicesApi: ServicesApiServiceService) {}
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
 
   nextStep() {
-  this.currentStep++;
-}
-
-previousStep() {
-  if (this.currentStep > 1) {
-    this.currentStep--;
+    this.currentStep++;
   }
-}
+
+  previousStep() {
+    if (this.currentStep > 1) {
+      this.currentStep--;
+    }
+  }
 
   formatDate(date: Date): string {
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
-    const formattedDate = `${year}-${month}-${day}`;
-    console.log('Fecha formateada:', formattedDate);
-    return formattedDate;
+    return `${year}-${month}-${day}`;
   }
 
   register() {
@@ -68,33 +67,50 @@ previousStep() {
 
     console.log('Payload enviado al backend:', payload);
 
-   this.servicesApi
-     .post('http://127.0.0.1:8000/api/auth/create', payload)
-     .then((response: any) => {
-       console.log('Respuesta completa del backend:', response);
-
-       if (response && response.user && response.user.id) {
-         const user = response.user;
-         this.authenId = user.id;
-         console.log('Authen ID extraído:', this.authenId);
-         this.nextStep();
-       } else {
-         throw new Error('El backend no devolvió el campo user.id.');
-       }
-     })
-     .catch((error) => {
-       console.error('Error al registrar usuario:', error);
-       alert('Error al registrar usuario: ' + error.message);
-     });
-
+    this.servicesApi
+      .post('http://127.0.0.1:8000/api/auth/create', payload)
+      .then((response: any) => {
+        console.log('Usuario registrado:', response);
+        this.authenticateUser(); // Autenticar después del registro
+      })
+      .catch((error) => {
+        console.error('Error al registrar usuario:', error);
+        alert('Error al registrar usuario: ' + error.message);
+      });
   }
 
+  authenticateUser() {
+    const authPayload = {
+      user_name: this.formData.user_name,
+      password: this.formData.password,
+    };
+
+    this.servicesApi
+      .post('http://127.0.0.1:8000/api/auth/login', authPayload)
+      .then((response: any) => {
+        console.log('Autenticación exitosa:', response);
+
+        if (response && response.user && response.user.id) {
+          this.authenId = response.user.id;
+          console.log('ID autenticado:', this.authenId);
+          this.nextStep(); // Avanzar al paso siguiente
+        } else {
+          throw new Error('El backend no devolvió el campo user.id.');
+        }
+      })
+      .catch((error) => {
+        console.error('Error al autenticar usuario:', error);
+        alert('Error al autenticar usuario: ' + error.message);
+      });
+  }
 
   registerCompany() {
     if (!this.authenId) {
-      alert('Error: No se encontró authen_id. Por favor, registre un usuario primero.');
+      alert(
+        'Error: No se encontró authen_id. Por favor, registre un usuario primero.'
+      );
       return;
-    };
+    }
 
     const planIdMap = {
       annual: 'ANL-5235',
@@ -103,6 +119,11 @@ previousStep() {
     };
 
     const planId = planIdMap[this.formData.plan as keyof typeof planIdMap];
+
+    if (!planId) {
+      alert('Por favor, selecciona un plan válido.');
+      return;
+    }
 
     const payload = {
       name: this.formData.companyName,
@@ -124,10 +145,12 @@ previousStep() {
       })
       .catch((error) => {
         console.error('Error al registrar la compañía:', error);
-        alert('Error al registrar la compañía: ' + error.message);
+        if (error.error && error.error.errors) {
+          console.error('Detalles del error:', error.error.errors);
+        }
+        alert(`Error al registrar la compañía: ${error.error.message}`);
       });
   }
-
 
   resetForm() {
     this.currentStep = 1;
@@ -147,6 +170,3 @@ previousStep() {
     this.authenId = null;
   }
 }
-
-
-
