@@ -29,6 +29,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/detalle-oferts/detalle-oferts.module').then(m => m.DetalleOfertsPageModule)
   },
   
+  {
+    path: 'auth-compani',
+    loadChildren: () => import('./pages/auth-compani/auth-compani.module').then( m => m.AuthCompaniPageModule)
+  },
+  {
+    path: 'new-ofers',
+    loadChildren: () => import('./pages/new-ofers/new-ofers.module').then( m => m.NewOfersPageModule)
+  },
 
 
 

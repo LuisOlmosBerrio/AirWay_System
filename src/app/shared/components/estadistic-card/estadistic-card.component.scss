@@ -1,42 +1,21 @@
-.custom-card {
-    height: 129px;
-    width: 248px;
-    background-color: rgba(255, 255, 255, 0.8); /* Blanco translúcido */
-    border: 1px solid rgba(0, 0, 0, 0.2); /* Borde sutil */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    padding: 16px;
-    text-align: center; /* Centra todo dentro del ion-card */
-  }
-  
-  .icon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px; /* Espaciado entre el ícono y el título */
-  }
-  
-  .icon-container ion-icon {
-    font-size: 30px; /* Aumenta el tamaño del ícono */
-    color: #4caf50; /* Cambia el color a un tono atractivo */
-    transition: transform 0.3s ease, color 0.3s ease; /* Añade una animación */
-  }
-  
-  .icon-container ion-icon:hover {
-    transform: scale(1.2); /* Aumenta el tamaño cuando pasas el mouse */
-    color: #388e3c; /* Cambia a un verde más oscuro al pasar el mouse */
-  }
-  
-  .custom-card ion-card-content {
-    text-align: right; /* Alinea el contenido a la derecha */
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
-  ion-card-title{
-    font-size: 15px;
+.stat-card {
+  width: 135px;
+  height: 99px;
+  text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  //width: 50%;
+
+  .stat-title {
+    font-size: 1rem;
+    color: #444;
   }
 
-  ion-card-content{
-    font-size: 19px;
+  .stat-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #f57c00; /* Naranja intenso */
   }
+}
