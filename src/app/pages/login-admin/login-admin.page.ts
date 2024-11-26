@@ -17,10 +17,10 @@ export class LoginAdminPage {
     password: ''
   };
 
-  // Visibilidad de la contraseña
+  
   showPassword: boolean = false;
 
-  // URL de la API
+ 
   url = environment.URL_BASE + 'auth/login'; 
 
   constructor(
@@ -29,12 +29,12 @@ export class LoginAdminPage {
     private readonly alertController: AlertController
   ) {}
 
-  // Alternar visibilidad de la contraseña
+  
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
   }
 
-  // Método para enviar los datos del formulario
+  
   async login(): Promise<void> {
     await this.loadingService.show();
     if (!this.loginData.user_name || !this.loginData.password) {
@@ -46,16 +46,16 @@ export class LoginAdminPage {
 
     try {
       
-      // Enviar los datos del formulario a la API
+      
       const response: LoginAdmin = await this.apiService.post<LoginAdmin>(
         this.url,
         this.loginData
       );
       await this.loadingService.dismiss();
-      // Mostrar la respuesta en la consola
+      
       console.log('Respuesta de la API:', response);
     } catch (error) {
-      // Manejar errores
+      
       await this.loadingService.dismiss();
       this.showAlert();
       console.error('Error al autenticar:', error);
@@ -77,10 +77,10 @@ export class LoginAdminPage {
       ],
     });
 
-    // Presenta el alert en pantalla
+    
     await alert.present();
 
-    // Obtiene el resultado al cerrar el alert
+  
     const result = await alert.onDidDismiss();
     console.log('Resultado:', result);
   }

@@ -11,8 +11,8 @@ import { environment } from 'src/environments/environment';
 })
 export class OfertasPage implements OnInit {
 
-  public offers: IFlightOffer[] = []; // Ofertas iniciales
-  public vehicleType: string = ''; // Tipo de vehículo seleccionado
+  public offers: IFlightOffer[] = []; 
+  public vehicleType: string = ''; 
   public searchCriteria!: any;
 
   constructor(private apiService: ServicesApiServiceService, private readonly route: ActivatedRoute) {}
@@ -28,10 +28,10 @@ export class OfertasPage implements OnInit {
       };
     });
     await this.searchOffers();
-    await this.filterOffersByVehicleType(); // Filtrar ofertas al iniciar
+    await this.filterOffersByVehicleType(); 
   }
 
-  // Buscar ofertas desde la API
+  
   async searchOffers() {
     const url = `${environment.URL_BASE}search-offers`;
     try {
@@ -43,17 +43,17 @@ export class OfertasPage implements OnInit {
     }
   }
 
-  // Filtrar ofertas según el tipo de vehículo seleccionado y actualizar this.offers
+  
   async filterOffersByVehicleType() {
     if (!this.vehicleType) {
       console.warn('No se ha seleccionado un tipo de vehículo.');
-      return; // Si no hay tipo de vehículo seleccionado, no se filtra
+      return; 
     }
 
     const filteredOffers: IFlightOffer[] = [];
     for (const offer of this.offers) {
       try {
-        // Consultar el vehículo asociado a la oferta
+        
         const vehicleResponse = await this.apiService.get<any>(`${environment.URL_BASE}vehicles/${offer.id_vehicle}`);
         const vehicleData = vehicleResponse?.Vehicles?.[0];
 
@@ -62,7 +62,7 @@ export class OfertasPage implements OnInit {
           continue;
         }
 
-        // Filtrar ofertas según el tipo de vehículo seleccionado
+        
         if (vehicleData.vehicle_type.toLowerCase() === this.vehicleType.toLowerCase()) {
           filteredOffers.push(offer);
         }
@@ -71,7 +71,7 @@ export class OfertasPage implements OnInit {
       }
     }
 
-    // Actualizar this.offers con las ofertas filtradas
+    
     this.offers = filteredOffers;
     console.log('Ofertas filtradas:', this.offers);
   }

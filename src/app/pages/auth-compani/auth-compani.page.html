@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
   <div class="form-container">
-    <!-- Paso 2: Información de autenticación (Account Details) -->
+    
     <div *ngIf="currentStep === 1" class="step-container">
       <h2 class="step-title">Account Details</h2>
       <ion-item>
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <!-- Paso 2: Selección del plan -->
+  
   <div *ngIf="currentStep === 2" class="step-container">
     <h2 class="step-title">Select a Plan</h2>
     <ion-radio-group [(ngModel)]="formData.plan">

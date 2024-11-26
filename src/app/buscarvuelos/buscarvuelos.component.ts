@@ -8,14 +8,13 @@ import { HttpService } from '../services/http.service';
 })
 export class FlightSearchComponent implements OnInit {
 
-  flights: any[] = [];  // Array para almacenar los vuelos obtenidos de la API
+  flights: any[] = []; 
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    // Llamamos al servicio para obtener los vuelos al cargar el componente
     this.httpService.getFlights().subscribe((data) => {
-      this.flights = data;  // Asignamos los vuelos a la variable 'flights'
+      this.flights = data;  
     });
   }
 }

@@ -142,18 +142,18 @@ ion-content {
   width: 80%;
 }
 .results-section {
-  padding: 20px; /* Espaciado alrededor de la sección */
+  padding: 20px; 
 }
 
 .cards-container {
-  display: flex; /* Utiliza flexbox para alinear las cartas */
-  justify-content: space-between; /* Espacio entre las cartas */
-  flex-wrap: wrap; /* Permite que las cartas se envuelvan en pantallas más pequeñas */
+  display: flex; 
+  justify-content: space-between;
+  flex-wrap: wrap; 
 }
 
 .flight-card {
-  flex: 0 1 calc(45% - 10px); /* Cada carta ocupa el 45% del ancho menos un margen */
-  margin-bottom: 20px; /* Espacio entre filas de cartas */
+  flex: 0 1 calc(45% - 10px); 
+  margin-bottom: 20px;
 }
 .search-section {
   position: relative; 
@@ -191,13 +191,13 @@ ion-content {
 
 .button-container {
    display: flex;
-   justify-content: center; /* Centra el botón horizontalmente */
-   margin-top: 10px; /* Espacio superior entre el contenido y el botón */
+   justify-content: center; 
+   margin-top: 10px; 
 }
 ion-radio-group {
   display: flex;
-  justify-content: center; /* Centra los radio buttons horizontalmente */
-  gap: 20px; /* Espacio entre los botones, ajusta según sea necesario */
+  justify-content: center; 
+  gap: 20px; 
 }
 
 ion-radio::part(container) {
@@ -228,18 +228,18 @@ ion-radio.radio-checked::part(mark) {
   transform: rotate(45deg);
 }
 
-/* Cambiar el color de los botones de ion-button */
+
 ion-button {
-  --background: #ec5915; /* Fondo de los botones */
-  --border-radius: 18px; /* Bordes redondeados */
-  --color: #fff; /* Color del texto en los botones */
+  --background: #ec5915; 
+  --border-radius: 18px; 
+  --color: #fff; 
 }
 
-/* Si quieres un botón con color específico, puedes usar un color diferente para hover o focus */
+
 ion-button:hover {
-  --background: #d74f14; /* Un color ligeramente más oscuro al pasar el ratón */
+  --background: #d74f14; 
 }
 
 ion-button:active {
-  --background: #bf4a12; /* Un color aún más oscuro cuando el botón está presionado */
+  --background: #bf4a12; 
 }

@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DetalleOfertsPage implements OnInit {
   id!: number;
-  offerDetails: any = null; // Detalles de la oferta con vehículo asociado
+  offerDetails: any = null; 
 
   constructor(
     private route: ActivatedRoute,
@@ -50,6 +50,6 @@ export class DetalleOfertsPage implements OnInit {
 
   buyOffer() {
     console.log('Compra iniciada para la oferta:', this.offerDetails?.id);
-    // Lógica para procesar la compra
+    
   }
 }
