@@ -10,11 +10,11 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class HomePage  {
   
-  public minDate!: string; // Fecha mínima (hoy)
-  public maxDate!: string; // Fecha máxima (hoy + 6 meses)
+  public minDate!: string; 
+  public maxDate!: string; 
   
   selectedDate: string;
-  public vehicleType: string = ''; // Tipo de vehículo seleccionado
+  public vehicleType: string = ''; 
   public searchCriteria = {
     type: 'transportation',
     origin: '',
@@ -23,23 +23,23 @@ export class HomePage  {
   };
 
   onDateChange(event: any) {
-    const selectedDate = event.detail.value; // Captura el valor del ion-datetime
-    this.searchCriteria.departure_date = selectedDate.split('T')[0]; // Guarda solo la parte de la fecha
+    const selectedDate = event.detail.value; 
+    this.searchCriteria.departure_date = selectedDate.split('T')[0]; 
   }
   
 
   constructor(private readonly httpSrv: HttpService, private readonly router: Router) {
     this.selectedDate = '';
     const today = new Date();
-    this.minDate = today.toISOString() // Fecha actual
+    this.minDate = today.toISOString() 
     const sixMonthsLater = new Date(
       today.setMonth(today.getMonth() + 6)
-    ).toISOString() // Fecha + 6 meses
+    ).toISOString() 
     this.maxDate = sixMonthsLater;
   }
 
   isFormValid(): boolean {
-    // Validar que todos los campos estén llenos
+   
     return (
       !!this.vehicleType &&
       !!this.searchCriteria.type &&
@@ -51,7 +51,7 @@ export class HomePage  {
   
   
   searchOffers() {
-    // Validar que todos los campos requeridos estén llenos
+   
     if (
       this.vehicleType &&
       this.searchCriteria.type &&
@@ -59,7 +59,7 @@ export class HomePage  {
       this.searchCriteria.destination &&
       this.searchCriteria.departure_date
     ) {
-      // Redirigir a la página de ofertas pasando los datos
+      
       if(this.vehicleType==='hotel'){
         this.searchCriteria.type = 'hotel'
       }

@@ -8,13 +8,13 @@ import { ServicesApiServiceService } from 'src/app/core/services/services-api-se
 })
 export class AuthCompaniPage {
   currentStep = 1;
-  authenId: string | null = null; // Almacena el ID de autenticación
+  authenId: string | null = null; 
   formData = {
     user_name: '',
     password: '',
     confirmPassword: '',
-    lastAccessDate: '', // Fecha de último acceso
-    plan: '', // Plan seleccionado
+    lastAccessDate: '', 
+    plan: '', 
     companyName: '',
     typeCompany: '',
     email: '',
@@ -71,7 +71,7 @@ export class AuthCompaniPage {
       .post('http://127.0.0.1:8000/api/auth/create', payload)
       .then((response: any) => {
         console.log('Usuario registrado:', response);
-        this.authenticateUser(); // Autenticar después del registro
+        this.authenticateUser(); 
       })
       .catch((error) => {
         console.error('Error al registrar usuario:', error);
@@ -93,7 +93,7 @@ export class AuthCompaniPage {
         if (response && response.user && response.user.id) {
           this.authenId = response.user.id;
           console.log('ID autenticado:', this.authenId);
-          this.nextStep(); // Avanzar al paso siguiente
+          this.nextStep(); 
         } else {
           throw new Error('El backend no devolvió el campo user.id.');
         }

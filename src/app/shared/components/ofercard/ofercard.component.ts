@@ -10,7 +10,7 @@ import { IFlightOffer } from 'src/app/interfaces/flight-offer';
 })
 export class OfercardComponent  {
 
-  @Input() offer: IFlightOffer | null = null;  // Recibimos una sola oferta
+  @Input() offer: IFlightOffer | null = null;  
 
   constructor(private router: Router) {}
 

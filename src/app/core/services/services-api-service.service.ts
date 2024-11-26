@@ -10,7 +10,6 @@ export class ServicesApiServiceService {
   }
   constructor(private readonly httpClient: HttpClient) {}
 
-  // Método GET
   public get<T>(url: string): Promise<T> {
     return new Promise((resolve, reject) => {
       this.httpClient.get<T>(url).subscribe({
