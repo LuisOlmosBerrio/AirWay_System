@@ -1,0 +1,21 @@
+.stat-card {
+  width: 135px;
+  height: 99px;
+  text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+ 
+
+  .stat-title {
+    font-size: 1rem;
+    color: #444;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #f57c00; 
+  }
+}

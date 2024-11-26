@@ -15,7 +15,7 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-  color: #8c8c8c;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -24,11 +24,11 @@
 }
 
 .custom-header {
-  --background: #ff8c00; /* Naranja personalizado */
+  --background: #ec5915;
 }
 
 ion-toolbar {
-  --background: #ff8c00; /* Naranja personalizado */
+  --background: #ec5915; 
 }
 
 /* Estilo general */
@@ -37,38 +37,38 @@ ion-content {
 }
 
 .search-section {
-  position: relative; /* Permite posicionar elementos dentro */
-  background-image: url('/src/assets/your-background-image.jpg'); /* Ruta a tu imagen */
-  background-size: cover; /* Cubre todo el área */
-  background-position: center; /* Centra la imagen */
-  padding: 40px; /* Espaciado alrededor del contenido */
+  position: relative; 
+  background-image: url('https://vuulrdxwexlikrkgofvd.supabase.co/storage/v1/object/public/profile-images/Imagen%20de%20WhatsApp%202024-11-24%20a%20las%2001.34.38_c59e4ead.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  padding: 40px; 
   border-radius: 8px;
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente para mejorar la legibilidad */
-  padding: 20px; /* Espaciado interno */
-  border-radius: 8px; /* Bordes redondeados */
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 20px; 
+  border-radius: 8px; 
 }
 
 .overlay h2 {
-  color: white; /* Color del texto del encabezado */
-  text-align: center; /* Centra el texto */
+  color: white; 
+  text-align: center; 
 }
 
 .form-inline {
-   display: flex; /* Utiliza flexbox para alinear los elementos */
-   justify-content: space-between; /* Espacio entre los elementos */
-   margin-bottom:15px; /* Espacio entre la línea y el botón */
+   display: flex; 
+   justify-content: space-between; 
+   margin-bottom:15px; 
 }
 
 .input-container {
-   flex:1; /* Cada contenedor ocupará el mismo espacio */
-   margin-right:10px; /* Espacio entre los campos */
+   flex:1; 
+   margin-right:10px;
 }
 
 .input-container:last-child {
-   margin-right:0; /* Elimina el margen derecho del último campo */
+   margin-right:0;
 }
 .search-section h2 {
   font-size: 1.5rem;
@@ -77,18 +77,18 @@ ion-content {
 }
 
 .form-inline {
-   display: flex; /* Utiliza flexbox para alinear los elementos */
-   justify-content: space-between; /* Espacio entre los elementos */
-   margin-bottom:15px; /* Espacio entre la línea y el botón */
+   display: flex; 
+   justify-content: space-between; 
+   margin-bottom:15px; 
 }
 
 .input-container {
-   flex:1; /* Cada contenedor ocupará el mismo espacio */
-   margin-right:10px; /* Espacio entre los campos */
+   flex:1; 
+   margin-right:10px;
 }
 
 .input-container:last-child {
-   margin-right:0; /* Elimina el margen derecho del último campo */
+   margin-right:0; 
 }
 
  ion-item {
@@ -99,19 +99,16 @@ ion-content {
    margin-top:10px;
  }
 
-/* Estilo para los radio buttons */
-/* Estilos para los radio buttons en línea */
 .radio-group-inline {
    display:flex;
-   justify-content: space-between; /* Espacio entre los items */
-   width:100%; /* Asegura que ocupe el %100 del contenedor */
+   justify-content: space-between; 
+   width:100%; 
  }
 
 .radio-group-inline ion-item {
-   width:48%; /* Asigna un %48 del ancho a cada item, puedes ajustar esto si lo necesitas */
+   width:48%;
  }
 
-/* Sección de resultados */
 .results-section h2 {
    font-size:1.5rem;
    margin-bottom:20px;
@@ -142,5 +139,107 @@ ion-content {
  }
 
  .date-popover {
-  width: 80%; /* Ajusta el ancho del popover */
+  width: 80%;
+}
+.results-section {
+  padding: 20px; 
+}
+
+.cards-container {
+  display: flex; 
+  justify-content: space-between;
+  flex-wrap: wrap; 
+}
+
+.flight-card {
+  flex: 0 1 calc(45% - 10px); 
+  margin-bottom: 20px;
+}
+.search-section {
+  position: relative; 
+  background-size: cover; 
+  background-position: center; 
+  padding: 40px; 
+  border-radius: 8px;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 20px; 
+  border-radius: 8px; 
+}
+
+.overlay h2 {
+  color: white; 
+  text-align: center; 
+}
+
+.form-inline {
+   display: flex; 
+   justify-content: space-between; 
+   margin-bottom:15px; 
+}
+
+.input-container {
+   flex:1; 
+   margin-right:10px;
+}
+
+.input-container:last-child {
+   margin-right:0;
+}
+
+.button-container {
+   display: flex;
+   justify-content: center; 
+   margin-top: 10px; 
+}
+ion-radio-group {
+  display: flex;
+  justify-content: center; 
+  gap: 20px; 
+}
+
+ion-radio::part(container) {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+
+ion-radio::part(mark) {
+  background: none;
+  transition: none;
+  transform: none;
+  border-radius: 0;
+}
+
+ion-radio.radio-checked::part(container) {
+  background: #ec5915;
+  border-color: transparent;
+}
+
+ion-radio.radio-checked::part(mark) {
+  width: 6px;
+  height: 10px;
+  border-width: 0px 2px 2px 0px;
+  border-style: solid;
+  border-color: #fff;
+  transform: rotate(45deg);
+}
+
+
+ion-button {
+  --background: #ec5915; 
+  --border-radius: 18px; 
+  --color: #fff; 
+}
+
+
+ion-button:hover {
+  --background: #d74f14; 
+}
+
+ion-button:active {
+  --background: #bf4a12; 
 }
