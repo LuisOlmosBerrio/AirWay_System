@@ -1,20 +1,78 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      <b>Airway</b>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <section class="search-section">
+    <div class="overlay">
+      <h2>Buscar Vuelos</h2>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <!-- Selector de tipo de vehículo -->
+      <div class="input-container">
+        <ion-label>Tipo de vehículo</ion-label>
+        <ion-select placeholder="Seleccione un tipo" [(ngModel)]="vehicleType">
+          <ion-select-option value="avion">Avión</ion-select-option>
+          <ion-select-option value="bus">Bus</ion-select-option>
+          <ion-select-option value="hotel">Hotel</ion-select-option>
+        </ion-select>
+      </div>
+
+      <!-- Campos de origen y destino -->
+      <div class="form-inline">
+        <div class="input-container">
+          <ion-label position="floating">Origen</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Ciudad de origen"
+            [(ngModel)]="searchCriteria.origin"
+          ></ion-input>
+        </div>
+
+        <div class="input-container">
+          <ion-label position="floating">Destino</ion-label>
+          <ion-input
+            type="text"
+            placeholder="Ciudad de destino"
+            [(ngModel)]="searchCriteria.destination"
+          ></ion-input>
+        </div>
+      </div>
+
+      <!-- Campo de fecha de salida -->
+      <div class="input-container">
+        <ion-label>Fecha de salida</ion-label>
+        <ion-datetime
+          [(ngModel)]="searchCriteria.departure_date"
+          [min]="minDate"
+          [max]="maxDate"
+          presentation="date"
+          (ionChange)="onDateChange($event)"
+        >
+     </ion-datetime>
+
+      </div>
+
+      <!-- Botón de búsqueda -->
+      <div class="button-container">
+        <ion-button
+          class="oval-button"
+          [disabled]="!isFormValid()"
+          (click)="searchOffers()"
+        >
+          Buscar vuelos
+        </ion-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de resultados de vuelos -->
+  <section class="results-section">
+    <div class="cards-container">
+      <!-- Aquí podrías añadir los resultados dinámicamente -->
+    </div>
+  </section>
 </ion-content>

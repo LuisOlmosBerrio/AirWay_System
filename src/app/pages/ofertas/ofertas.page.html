@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Ofertas de vuelos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ng-container *ngIf="offers.length > 0; else noOffers">
+    <app-ofercard *ngFor="let offer of offers" [offer]="offer"></app-ofercard>
+  </ng-container>
+  
+  <ng-template #noOffers>
+    <p>No se encontraron ofertas disponibles para los criterios seleccionados.</p>
+  </ng-template>
+  
+</ion-content>

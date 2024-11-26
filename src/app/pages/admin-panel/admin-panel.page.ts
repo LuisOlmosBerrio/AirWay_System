@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-panel.page.scss'],
 })
 export class AdminPanelPage implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  newOfer(){
+
   }
 
 }

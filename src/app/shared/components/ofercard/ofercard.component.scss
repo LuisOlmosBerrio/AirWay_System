@@ -1,0 +1,74 @@
+.offer-container {
+    padding: 16px;
+  }
+  
+  ion-card {
+    --background: #f7f8fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .flight-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333333;
+  }
+  
+  .flight-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666666;
+  }
+  
+  .price-info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #008cba;
+  }
+  
+  .price-info h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #999999;
+    text-decoration: line-through;
+  }
+  
+  ion-item {
+    --background: transparent;
+    color: #333333;
+    margin: 8px 0;
+  }
+  
+  ion-icon {
+    font-size: 1.2rem;
+    color: #666666;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+  ion-button {
+    width: 48%;
+    font-weight: bold;
+  }
+  
+  ion-button[color="primary"] {
+    --background: #008cba;
+    --background-hover: #006f9b;
+    --color: white;
+  }
+  
